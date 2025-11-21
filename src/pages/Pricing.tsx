@@ -1,12 +1,14 @@
 import { motion } from "framer-motion";
-import { Check } from "lucide-react";
+import { Check, Zap, Crown, Star } from "lucide-react";
 import { GlassProjectCard } from "@/components/GlassProjectCard";
+import { GlowIcon } from "@/components/GlowIcon";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 
 const pricingPlans = [
   {
     name: "Basic",
+    icon: Star,
     color: "blue" as const,
     price: "$150",
     period: "per project",
@@ -22,6 +24,7 @@ const pricingPlans = [
   },
   {
     name: "Professional",
+    icon: Zap,
     color: "purple" as const,
     price: "$450",
     period: "per project",
@@ -40,6 +43,7 @@ const pricingPlans = [
   },
   {
     name: "Premium",
+    icon: Crown,
     color: "teal" as const,
     price: "$1,200",
     period: "per project",
@@ -96,16 +100,18 @@ const Pricing = () => {
                 </div>
               )}
               
-              <h3 className="text-3xl font-light mb-2">{plan.name}</h3>
+              <div className="flex justify-center mb-6">
+                <GlowIcon icon={plan.icon} color={plan.color} size={40} />
+              </div>
               
-              <div className="mb-4">
+              <h3 className="text-3xl font-light mb-2 text-center">{plan.name}</h3>
+              
+              <div className="mb-4 text-center">
                 <span className="text-5xl font-light">{plan.price}</span>
                 <span className="text-muted-foreground font-light ml-2">{plan.period}</span>
               </div>
               
-              <p className="text-muted-foreground font-light mb-8">
-                {plan.description}
-              </p>
+              <p className="text-muted-foreground font-light mb-8 text-center">{plan.description}</p>
 
               <ul className="space-y-4 mb-8">
                 {plan.features.map((feature) => (
