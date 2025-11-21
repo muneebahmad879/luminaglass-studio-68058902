@@ -44,7 +44,7 @@ const services = [
 
 const Services = () => {
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-24">
       <section className="container mx-auto px-6 py-20">
         <motion.h1
           initial={{ opacity: 0, y: -20 }}

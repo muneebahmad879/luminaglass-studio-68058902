@@ -1,11 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Film } from "lucide-react";
+import profileImage from "@/assets/profile.jpg";
 
 const navItems = [
   { name: "Home", path: "/" },
   { name: "Services", path: "/services" },
   { name: "Portfolio", path: "/portfolio" },
+  { name: "Pricing", path: "/pricing" },
   { name: "About", path: "/about" },
   { name: "Contact", path: "/contact" },
 ];
@@ -18,13 +19,17 @@ export const Navigation = () => {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ type: "spring", stiffness: 200, damping: 15 }}
-      className="fixed top-0 left-0 right-0 z-50 glass-card border-b"
+      className="fixed top-4 left-4 right-4 z-50 glass-card rounded-full"
     >
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="bg-primary p-2 rounded-xl">
-              <Film className="text-primary-foreground" size={24} strokeWidth={1.5} />
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+              <img
+                src={profileImage}
+                alt="Muneeb"
+                className="w-full h-full object-cover"
+              />
             </div>
             <span className="text-xl font-light">Muneeb</span>
           </Link>
