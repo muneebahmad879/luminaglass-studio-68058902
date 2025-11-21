@@ -24,7 +24,7 @@ export const Navigation = () => {
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-primary">
+            <div className="w-10 h-10 rounded-full overflow-hidden">
               <img
                 src={profileImage}
                 alt="Muneeb"

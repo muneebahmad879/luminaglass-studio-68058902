@@ -20,10 +20,28 @@ const About = () => {
         {/* Profile Section */}
         <div className="max-w-4xl mx-auto mb-20">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
-            className="relative w-64 h-64 mx-auto mb-12"
+            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+            animate={{ 
+              opacity: 1, 
+              scale: 1, 
+              rotate: 0,
+            }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 100, 
+              damping: 12,
+              delay: 0.1 
+            }}
+            whileHover={{ 
+              scale: 1.05,
+              rotate: 5,
+              transition: { 
+                type: "spring", 
+                stiffness: 300, 
+                damping: 15 
+              }
+            }}
+            className="relative w-64 h-64 mx-auto mb-12 cursor-pointer"
           >
             {/* Instagram-colored animated glow */}
             <div 
