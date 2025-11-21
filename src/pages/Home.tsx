@@ -9,23 +9,14 @@ const Home = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen pt-24">
       {/* Hero Section */}
       <section className="container mx-auto px-6 py-20">
         <div className="max-w-5xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="mb-8 flex justify-center"
-          >
-            <GlowIcon icon={Film} color="blue" size={64} />
-          </motion.div>
-
           <motion.h1
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
             className="text-6xl md:text-8xl font-light mb-6 tracking-tight"
           >
             Cinematic Stories,
@@ -33,10 +24,11 @@ const Home = () => {
             <span className="text-primary">Frame by Frame</span>
           </motion.h1>
 
+
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
             className="text-xl md:text-2xl text-muted-foreground mb-12 font-light max-w-3xl mx-auto"
           >
             Professional video editor crafting compelling narratives through expert editing, motion graphics, and creative storytelling
@@ -45,7 +37,7 @@ const Home = () => {
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.3 }}
+            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
           >
             <Button
               onClick={() => navigate("/portfolio")}
@@ -77,7 +69,7 @@ const Home = () => {
             </div>
             <h3 className="text-2xl font-light mb-4 text-center">Long Form Editing</h3>
             <p className="text-muted-foreground font-light text-center">
-              Documentaries, interviews, and narrative content that captivate from start to finish
+              Documentaries, interviews, and narrative content
             </p>
           </GlassProjectCard>
 
@@ -87,7 +79,7 @@ const Home = () => {
             </div>
             <h3 className="text-2xl font-light mb-4 text-center">Short Form Content</h3>
             <p className="text-muted-foreground font-light text-center">
-              Social media reels, ads, and viral content optimized for engagement
+              Social media reels, ads, and viral content
             </p>
           </GlassProjectCard>
 
@@ -97,7 +89,7 @@ const Home = () => {
             </div>
             <h3 className="text-2xl font-light mb-4 text-center">Motion Graphics</h3>
             <p className="text-muted-foreground font-light text-center">
-              Dynamic animations and visual effects that elevate your brand
+              Dynamic animations and visual effects
             </p>
           </GlassProjectCard>
         </div>
