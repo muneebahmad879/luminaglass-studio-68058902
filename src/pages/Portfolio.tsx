@@ -53,14 +53,23 @@ const Portfolio = () => {
           transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
-          <button onClick={() => setActiveTab("longForm")}>
-            <CategoryBadge icon={Film} label="Long Form" color={activeTab === "longForm" ? "blue" : "blue"} />
+          <button 
+            onClick={() => setActiveTab("longForm")}
+            className={activeTab === "longForm" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]" : ""}
+          >
+            <CategoryBadge icon={Film} label="Long Form" color="blue" />
           </button>
-          <button onClick={() => setActiveTab("shortForm")}>
-            <CategoryBadge icon={Camera} label="Short Form" color={activeTab === "shortForm" ? "purple" : "purple"} />
+          <button 
+            onClick={() => setActiveTab("shortForm")}
+            className={activeTab === "shortForm" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]" : ""}
+          >
+            <CategoryBadge icon={Camera} label="Short Form" color="purple" />
           </button>
-          <button onClick={() => setActiveTab("animations")}>
-            <CategoryBadge icon={Sparkles} label="Animations" color={activeTab === "animations" ? "teal" : "teal"} />
+          <button 
+            onClick={() => setActiveTab("animations")}
+            className={activeTab === "animations" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]" : ""}
+          >
+            <CategoryBadge icon={Sparkles} label="Animations" color="teal" />
           </button>
         </motion.div>
 
