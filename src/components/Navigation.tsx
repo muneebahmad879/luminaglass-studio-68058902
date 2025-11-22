@@ -1,5 +1,6 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { NavLink } from "@/components/NavLink";
 import profileImage from "@/assets/profile.jpg";
 
 const navItems = [
@@ -12,8 +13,6 @@ const navItems = [
 ];
 
 export const Navigation = () => {
-  const location = useLocation();
-
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -34,22 +33,26 @@ export const Navigation = () => {
             <span className="text-xl font-light">Muneeb</span>
           </Link>
           
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-2">
             {navItems.map((item) => (
-              <Link
-                key={item.path}
+              <NavLink
+                key={item.name}
                 to={item.path}
-                className="relative font-light transition-colors hover:text-primary"
+                className="relative text-sm font-light text-muted-foreground hover:text-foreground transition-all px-4 py-2 rounded-full"
               >
-                {item.name}
-                {location.pathname === item.path && (
-                  <motion.div
-                    layoutId="activeNav"
-                    className="absolute -bottom-1 left-0 right-0 h-0.5 bg-primary"
-                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                  />
+                {({ isActive }) => (
+                  <>
+                    <span className={isActive ? "text-foreground" : ""}>{item.name}</span>
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeLink"
+                        className="absolute inset-0 glass-card rounded-full -z-10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]"
+                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                      />
+                    )}
+                  </>
                 )}
-              </Link>
+              </NavLink>
             ))}
           </div>
 

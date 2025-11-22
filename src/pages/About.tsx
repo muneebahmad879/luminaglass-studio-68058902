@@ -118,7 +118,7 @@ const About = () => {
         </div>
 
         {/* My Mission */}
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-4xl mx-auto mb-20">
           <motion.h2
             initial={{ opacity: 0, y: -20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -136,6 +136,56 @@ const About = () => {
               brands amplify their message through the power of expertly crafted video content.
             </p>
           </GlassProjectCard>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="max-w-4xl mx-auto">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="text-4xl font-light text-center mb-12"
+          >
+            Frequently Asked Questions
+          </motion.h2>
+
+          <div className="space-y-6">
+            <GlassProjectCard delay={0.1}>
+              <h3 className="text-xl font-light mb-2">What's your typical turnaround time?</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                For most projects, I deliver within 3-7 business days. Rush orders are available for urgent needs, and longer projects are scheduled based on complexity.
+              </p>
+            </GlassProjectCard>
+
+            <GlassProjectCard delay={0.2}>
+              <h3 className="text-xl font-light mb-2">What video formats do you work with?</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                I work with all major video formats including MP4, MOV, AVI, and professional codecs like ProRes. I can deliver in any format you need for your platform.
+              </p>
+            </GlassProjectCard>
+
+            <GlassProjectCard delay={0.3}>
+              <h3 className="text-xl font-light mb-2">Do you offer revisions?</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                Yes! I include up to 3 rounds of revisions with every project to ensure you're completely satisfied with the final result.
+              </p>
+            </GlassProjectCard>
+
+            <GlassProjectCard delay={0.4}>
+              <h3 className="text-xl font-light mb-2">What software do you use?</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                I primarily use Adobe Premiere Pro, After Effects, and DaVinci Resolve. I'm also experienced with Final Cut Pro and various motion graphics tools.
+              </p>
+            </GlassProjectCard>
+
+            <GlassProjectCard delay={0.5}>
+              <h3 className="text-xl font-light mb-2">How do we share files?</h3>
+              <p className="text-muted-foreground font-light leading-relaxed">
+                I accept files via Google Drive, Dropbox, WeTransfer, or Frame.io. I can work with whatever platform is most convenient for you.
+              </p>
+            </GlassProjectCard>
+          </div>
         </div>
       </section>
     </div>

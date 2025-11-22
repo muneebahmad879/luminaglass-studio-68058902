@@ -40,13 +40,14 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
           >
-            <Button
-              onClick={() => navigate("/portfolio")}
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-light shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]"
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={() => window.open('https://www.youtube.com/@muneebgondal', '_blank')}
+              className="glass-card px-8 py-4 rounded-full text-lg font-light hover:glass-hover transition-all shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_30px_rgba(255,255,255,0.1)]"
             >
               Watch My Work
-            </Button>
+            </motion.button>
           </motion.div>
         </div>
       </section>
