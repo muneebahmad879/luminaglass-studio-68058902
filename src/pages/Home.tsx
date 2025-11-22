@@ -3,6 +3,7 @@ import { Film, Sparkles, Video } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { GlowIcon } from "@/components/GlowIcon";
 import { GlassProjectCard } from "@/components/GlassProjectCard";
+import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
 import { useNavigate } from "react-router-dom";
 
 const Home = () => {
@@ -42,7 +43,7 @@ const Home = () => {
             <Button
               onClick={() => navigate("/portfolio")}
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-light"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 py-6 text-lg font-light shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]"
             >
               Watch My Work
             </Button>
@@ -94,6 +95,9 @@ const Home = () => {
           </GlassProjectCard>
         </div>
       </section>
+
+      {/* Testimonials */}
+      <TestimonialsCarousel />
     </div>
   );
 };

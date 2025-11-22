@@ -28,9 +28,9 @@ const About = () => {
             }}
             transition={{ 
               type: "spring", 
-              stiffness: 100, 
-              damping: 12,
-              delay: 0.1 
+              stiffness: 150, 
+              damping: 10,
+              duration: 0.5
             }}
             whileHover={{ 
               scale: 1.05,
