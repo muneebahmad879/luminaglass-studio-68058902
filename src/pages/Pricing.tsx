@@ -122,16 +122,18 @@ const Pricing = () => {
                 ))}
               </ul>
 
-              <Button
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
                 onClick={() => navigate("/contact")}
-                className={`w-full rounded-full ${
+                className={`w-full rounded-full font-light transition-all px-6 py-3 shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)] ${
                   plan.popular
-                    ? "bg-primary hover:bg-primary/90 text-primary-foreground"
-                    : "bg-secondary hover:bg-secondary/90 text-secondary-foreground"
+                    ? "glass-card hover:glass-hover border-2 border-primary/50"
+                    : "glass-card hover:glass-hover"
                 }`}
               >
                 Get Started
-              </Button>
+              </motion.button>
             </GlassProjectCard>
           ))}
         </div>
@@ -146,13 +148,14 @@ const Pricing = () => {
           <p className="text-muted-foreground font-light mb-4">
             Need a custom package or have questions about pricing?
           </p>
-          <Button
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/contact")}
-            variant="outline"
-            className="rounded-full"
+            className="glass-card rounded-full px-6 py-3 font-light hover:glass-hover transition-all shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]"
           >
             Contact Me
-          </Button>
+          </motion.button>
         </motion.div>
       </section>
     </div>

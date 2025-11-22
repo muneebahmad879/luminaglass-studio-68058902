@@ -1,7 +1,5 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { GlassProjectCard } from "@/components/GlassProjectCard";
 
 const testimonials = [
   {
@@ -54,47 +52,46 @@ export const TestimonialsCarousel = () => {
         Client Testimonials
       </motion.h2>
 
-      <div className="max-w-5xl mx-auto">
-        <Carousel
-          opts={{
-            align: "start",
-            loop: true,
-          }}
-          className="w-full"
-        >
-          <CarouselContent>
-            {testimonials.map((testimonial, index) => (
-              <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
-                <GlassProjectCard delay={0}>
-                  <div className="flex flex-col items-center text-center p-6">
-                    <div className="mb-6">
-                      <Quote className="w-12 h-12 text-primary opacity-50" />
-                    </div>
-                    
-                    <p className="text-lg text-muted-foreground font-light leading-relaxed mb-8 italic">
-                      "{testimonial.quote}"
-                    </p>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        {testimonials.map((testimonial, index) => (
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ 
+              type: "spring", 
+              stiffness: 200, 
+              damping: 15,
+              delay: index * 0.1 
+            }}
+            whileHover={{ scale: 1.02 }}
+            className="glass-card rounded-3xl p-8 glass-hover relative overflow-hidden"
+          >
+            <div className="absolute top-4 right-4 opacity-20">
+              <Quote className="w-16 h-16 text-primary" />
+            </div>
+            
+            <div className="flex items-start gap-4 mb-6">
+              <div className="w-14 h-14 rounded-full overflow-hidden glass-card p-0.5 flex-shrink-0">
+                <img
+                  src={testimonial.image}
+                  alt={testimonial.name}
+                  className="w-full h-full object-cover rounded-full"
+                />
+              </div>
+              <div>
+                <h4 className="text-lg font-light mb-1">{testimonial.name}</h4>
+                <p className="text-sm text-muted-foreground font-light">{testimonial.role}</p>
+                <p className="text-sm text-primary font-light">{testimonial.company}</p>
+              </div>
+            </div>
 
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 rounded-full overflow-hidden mb-4 glass-card p-1">
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover rounded-full"
-                        />
-                      </div>
-                      <h4 className="text-xl font-light mb-1">{testimonial.name}</h4>
-                      <p className="text-sm text-muted-foreground font-light">{testimonial.role}</p>
-                      <p className="text-sm text-primary font-light">{testimonial.company}</p>
-                    </div>
-                  </div>
-                </GlassProjectCard>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="glass-card hover:glass-hover border-primary/20" />
-          <CarouselNext className="glass-card hover:glass-hover border-primary/20" />
-        </Carousel>
+            <p className="text-base text-muted-foreground font-light leading-relaxed italic">
+              "{testimonial.quote}"
+            </p>
+          </motion.div>
+        ))}
       </div>
     </section>
   );
