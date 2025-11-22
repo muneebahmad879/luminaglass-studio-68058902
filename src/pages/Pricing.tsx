@@ -126,7 +126,7 @@ const Pricing = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate("/contact")}
-                className={`w-full rounded-full font-light transition-all px-6 py-3 shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)] ${
+                className={`w-full rounded-full font-light transition-all px-5 py-2 text-sm shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)] ${
                   plan.popular
                     ? "glass-card hover:glass-hover border-2 border-primary/50"
                     : "glass-card hover:glass-hover"
@@ -152,7 +152,7 @@ const Pricing = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => navigate("/contact")}
-            className="glass-card rounded-full px-6 py-3 font-light hover:glass-hover transition-all shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]"
+            className="glass-card rounded-full px-5 py-2 text-sm font-light hover:glass-hover transition-all shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]"
           >
             Contact Me
           </motion.button>
