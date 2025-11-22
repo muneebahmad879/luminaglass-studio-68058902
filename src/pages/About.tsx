@@ -1,8 +1,14 @@
 import { motion } from "framer-motion";
-import { Award, Users, Clock, Sparkles } from "lucide-react";
+import { Award, Users, Clock, Sparkles, Plus } from "lucide-react";
 import { GlassProjectCard } from "@/components/GlassProjectCard";
 import { StatsCard } from "@/components/StatsCard";
 import profileImage from "@/assets/profile.jpg";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 const About = () => {
   return (
@@ -150,42 +156,59 @@ const About = () => {
             Frequently Asked Questions
           </motion.h2>
 
-          <div className="space-y-6">
-            <GlassProjectCard delay={0.1}>
-              <h3 className="text-xl font-light mb-2">What's your typical turnaround time?</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                For most projects, I deliver within 3-7 business days. Rush orders are available for urgent needs, and longer projects are scheduled based on complexity.
-              </p>
-            </GlassProjectCard>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
+          >
+            <Accordion type="single" collapsible className="space-y-4">
+              <AccordionItem value="item-1" className="glass-card rounded-2xl px-6 border-none">
+                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                  What's your typical turnaround time?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                  For most projects, I deliver within 3-7 business days. Rush orders are available for urgent needs, and longer projects are scheduled based on complexity.
+                </AccordionContent>
+              </AccordionItem>
 
-            <GlassProjectCard delay={0.2}>
-              <h3 className="text-xl font-light mb-2">What video formats do you work with?</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                I work with all major video formats including MP4, MOV, AVI, and professional codecs like ProRes. I can deliver in any format you need for your platform.
-              </p>
-            </GlassProjectCard>
+              <AccordionItem value="item-2" className="glass-card rounded-2xl px-6 border-none">
+                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                  What video formats do you work with?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                  I work with all major video formats including MP4, MOV, AVI, and professional codecs like ProRes. I can deliver in any format you need for your platform.
+                </AccordionContent>
+              </AccordionItem>
 
-            <GlassProjectCard delay={0.3}>
-              <h3 className="text-xl font-light mb-2">Do you offer revisions?</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                Yes! I include up to 3 rounds of revisions with every project to ensure you're completely satisfied with the final result.
-              </p>
-            </GlassProjectCard>
+              <AccordionItem value="item-3" className="glass-card rounded-2xl px-6 border-none">
+                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                  Do you offer revisions?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                  Yes! I include up to 3 rounds of revisions with every project to ensure you're completely satisfied with the final result.
+                </AccordionContent>
+              </AccordionItem>
 
-            <GlassProjectCard delay={0.4}>
-              <h3 className="text-xl font-light mb-2">What software do you use?</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                I primarily use Adobe Premiere Pro, After Effects, and DaVinci Resolve. I'm also experienced with Final Cut Pro and various motion graphics tools.
-              </p>
-            </GlassProjectCard>
+              <AccordionItem value="item-4" className="glass-card rounded-2xl px-6 border-none">
+                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                  What software do you use?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                  I primarily use Adobe Premiere Pro, After Effects, and DaVinci Resolve. I'm also experienced with Final Cut Pro and various motion graphics tools.
+                </AccordionContent>
+              </AccordionItem>
 
-            <GlassProjectCard delay={0.5}>
-              <h3 className="text-xl font-light mb-2">How do we share files?</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                I accept files via Google Drive, Dropbox, WeTransfer, or Frame.io. I can work with whatever platform is most convenient for you.
-              </p>
-            </GlassProjectCard>
-          </div>
+              <AccordionItem value="item-5" className="glass-card rounded-2xl px-6 border-none">
+                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                  How do we share files?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                  I accept files via Google Drive, Dropbox, WeTransfer, or Frame.io. I can work with whatever platform is most convenient for you.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </motion.div>
         </div>
       </section>
     </div>
