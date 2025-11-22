@@ -1,29 +1,34 @@
 import { motion } from "framer-motion";
-import { Film, Camera, Sparkles } from "lucide-react";
+import { Film, Camera, Sparkles, Briefcase } from "lucide-react";
 import { GlassProjectCard } from "@/components/GlassProjectCard";
 import { CategoryBadge } from "@/components/CategoryBadge";
 import { useState } from "react";
 
 const projects = {
   longForm: [
-    { title: "Corporate Documentary", category: "Documentary", thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=450&fit=crop" },
-    { title: "Brand Story", category: "Narrative", thumbnail: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=450&fit=crop" },
-    { title: "Event Coverage", category: "Event", thumbnail: "https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=450&fit=crop" },
+    { title: "Corporate Documentary", category: "Documentary", videoId: "dQw4w9WgXcQ" },
+    { title: "Brand Story", category: "Narrative", videoId: "dQw4w9WgXcQ" },
+    { title: "Event Coverage", category: "Event", videoId: "dQw4w9WgXcQ" },
   ],
   shortForm: [
-    { title: "Product Launch Reel", category: "Social Media", thumbnail: "https://images.unsplash.com/photo-1516321497487-e288fb19713f?w=800&h=450&fit=crop" },
-    { title: "Instagram Showcase", category: "Reel", thumbnail: "https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=800&h=450&fit=crop" },
-    { title: "TikTok Campaign", category: "Viral Content", thumbnail: "https://images.unsplash.com/photo-1611605698335-8b1569810432?w=800&h=450&fit=crop" },
+    { title: "Product Launch Reel", category: "Social Media", videoId: "dQw4w9WgXcQ" },
+    { title: "Instagram Showcase", category: "Reel", videoId: "dQw4w9WgXcQ" },
+    { title: "TikTok Campaign", category: "Viral Content", videoId: "dQw4w9WgXcQ" },
   ],
   animations: [
-    { title: "Logo Animation", category: "Branding", thumbnail: "https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=450&fit=crop" },
-    { title: "Motion Graphics Package", category: "VFX", thumbnail: "https://images.unsplash.com/photo-1550745165-9bc0b252726f?w=800&h=450&fit=crop" },
-    { title: "Kinetic Typography", category: "Animation", thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=450&fit=crop" },
+    { title: "Logo Animation", category: "Branding", videoId: "dQw4w9WgXcQ" },
+    { title: "Motion Graphics Package", category: "VFX", videoId: "dQw4w9WgXcQ" },
+    { title: "Kinetic Typography", category: "Animation", videoId: "dQw4w9WgXcQ" },
+  ],
+  business: [
+    { title: "Brand Identity Video", category: "Corporate", videoId: "dQw4w9WgXcQ" },
+    { title: "Product Showcase", category: "Commercial", videoId: "dQw4w9WgXcQ" },
+    { title: "Company Culture", category: "Recruitment", videoId: "dQw4w9WgXcQ" },
   ],
 };
 
 const Portfolio = () => {
-  const [activeTab, setActiveTab] = useState<"longForm" | "shortForm" | "animations">("longForm");
+  const [activeTab, setActiveTab] = useState<"longForm" | "shortForm" | "animations" | "business">("longForm");
 
   return (
     <div className="min-h-screen pt-24">
@@ -71,6 +76,12 @@ const Portfolio = () => {
           >
             <CategoryBadge icon={Sparkles} label="Animations" color="teal" />
           </button>
+          <button 
+            onClick={() => setActiveTab("business")}
+            className={activeTab === "business" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]" : ""}
+          >
+            <CategoryBadge icon={Briefcase} label="Business & Brand" color="orange" />
+          </button>
         </motion.div>
 
         {/* Projects Grid */}
@@ -78,12 +89,12 @@ const Portfolio = () => {
           {projects[activeTab].map((project, index) => (
             <GlassProjectCard key={project.title} delay={index * 0.1}>
               <div className="relative overflow-hidden rounded-2xl mb-4 aspect-video">
-                <motion.img
-                  whileHover={{ scale: 1.1 }}
-                  transition={{ duration: 0.3 }}
-                  src={project.thumbnail}
-                  alt={project.title}
-                  className="w-full h-full object-cover"
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${project.videoId}`}
+                  title={project.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
                 />
               </div>
               <h3 className="text-xl font-light mb-2">{project.title}</h3>

@@ -1,47 +1,60 @@
 import { motion } from "framer-motion";
 import { Quote } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Marketing Director",
-    company: "TechFlow Inc.",
-    quote: "Muneeb transformed our corporate videos into cinematic masterpieces. His attention to detail and creative vision exceeded our expectations.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop&crop=faces"
+    company: "TechCorp",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    quote: "Absolutely phenomenal work! The editing transformed our corporate video into something truly engaging."
   },
   {
-    name: "David Chen",
+    name: "Michael Chen",
     role: "Content Creator",
-    company: "Viral Media",
-    quote: "Working with Muneeb elevated my content game. His edits are not just professional—they're art. Every frame tells a story.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=faces"
+    company: "Digital Dreams",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    quote: "Fast turnaround, creative vision, and technical excellence. Couldn't ask for more!"
   },
   {
-    name: "Emma Williams",
+    name: "Emily Rodriguez",
+    role: "CEO",
+    company: "Startup Inc",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    quote: "The attention to detail and storytelling ability is unmatched. Highly recommend!"
+  },
+  {
+    name: "David Park",
     role: "Brand Manager",
-    company: "Creative Studios",
-    quote: "Fast turnaround without compromising quality. Muneeb understands brand vision and brings it to life through exceptional editing.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=faces"
+    company: "Creative Studio",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    quote: "Brought our brand story to life in ways we never imagined. Absolutely brilliant!"
   },
   {
-    name: "Michael Rodriguez",
-    role: "Documentary Filmmaker",
-    company: "Story Films",
-    quote: "His motion graphics skills are unmatched. Muneeb added layers of depth to our documentary that we never imagined possible.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=faces"
-  },
-  {
-    name: "Lisa Anderson",
-    role: "Social Media Strategist",
-    company: "Digital Pulse",
-    quote: "Muneeb knows exactly how to make content go viral. His short-form edits consistently deliver engagement and results.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=faces"
+    name: "Lisa Thompson",
+    role: "Social Media Manager",
+    company: "Viral Media",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop",
+    quote: "Perfect for social content! The edits always perform incredibly well with our audience."
   }
 ];
 
 export const TestimonialsCarousel = () => {
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOffset((prev) => prev - 0.5);
+    }, 30);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Duplicate testimonials for seamless loop
+  const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
+
   return (
-    <section className="container mx-auto px-6 py-20">
+    <section className="py-20 overflow-hidden relative">
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -52,46 +65,50 @@ export const TestimonialsCarousel = () => {
         Client Testimonials
       </motion.h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-        {testimonials.map((testimonial, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 200, 
-              damping: 15,
-              delay: index * 0.1 
-            }}
-            whileHover={{ scale: 1.02 }}
-            className="glass-card rounded-3xl p-8 glass-hover relative overflow-hidden"
-          >
-            <div className="absolute top-4 right-4 opacity-20">
-              <Quote className="w-16 h-16 text-primary" />
-            </div>
-            
-            <div className="flex items-start gap-4 mb-6">
-              <div className="w-14 h-14 rounded-full overflow-hidden glass-card p-0.5 flex-shrink-0">
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-r from-background to-transparent z-10 pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-32 md:w-64 bg-gradient-to-l from-background to-transparent z-10 pointer-events-none" />
+
+      {/* Scrolling testimonials */}
+      <div className="relative">
+        <motion.div
+          className="flex gap-6"
+          animate={{
+            x: offset
+          }}
+          transition={{
+            duration: 0,
+            ease: "linear"
+          }}
+          onAnimationComplete={() => {
+            if (offset <= -(400 * testimonials.length)) {
+              setOffset(0);
+            }
+          }}
+        >
+          {duplicatedTestimonials.map((testimonial, index) => (
+            <div
+              key={index}
+              className="glass-card rounded-3xl p-8 min-w-[350px] md:min-w-[400px] flex-shrink-0"
+            >
+              <Quote className="text-primary mb-6" size={32} strokeWidth={1.5} />
+              <p className="text-lg font-light mb-6 leading-relaxed">"{testimonial.quote}"</p>
+              <div className="flex items-center gap-4">
                 <img
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-full h-full object-cover rounded-full"
+                  className="w-12 h-12 rounded-full object-cover"
                 />
-              </div>
-              <div>
-                <h4 className="text-lg font-light mb-1">{testimonial.name}</h4>
-                <p className="text-sm text-muted-foreground font-light">{testimonial.role}</p>
-                <p className="text-sm text-primary font-light">{testimonial.company}</p>
+                <div>
+                  <p className="font-light">{testimonial.name}</p>
+                  <p className="text-sm text-muted-foreground font-light">
+                    {testimonial.role} at {testimonial.company}
+                  </p>
+                </div>
               </div>
             </div>
-
-            <p className="text-base text-muted-foreground font-light leading-relaxed italic">
-              "{testimonial.quote}"
-            </p>
-          </motion.div>
-        ))}
+          ))}
+        </motion.div>
       </div>
     </section>
   );
