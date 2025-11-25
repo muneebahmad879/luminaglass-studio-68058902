@@ -55,13 +55,12 @@ const Home = () => {
           className="max-w-5xl mx-auto"
         >
           <div className="relative group">
-            {/* Animated liquid glass glow */}
+            {/* Instagram-colored animated glow */}
             <div 
-              className="absolute -inset-4 rounded-3xl opacity-70 blur-2xl transition-all duration-700 group-hover:opacity-90 group-hover:blur-3xl"
+              className="absolute -inset-4 rounded-3xl opacity-70 blur-3xl instagram-glow transition-all duration-700 group-hover:opacity-90"
               style={{
-                background: "linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3), rgba(20, 184, 166, 0.3))",
+                background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
                 backgroundSize: "200% 200%",
-                animation: "gradient 8s ease infinite",
               }}
             />
             
