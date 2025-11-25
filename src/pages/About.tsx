@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Award, Users, Clock, Sparkles, Plus } from "lucide-react";
+import { Award, Users, Clock, Sparkles, Zap, Target, Palette } from "lucide-react";
 import { GlassProjectCard } from "@/components/GlassProjectCard";
 import { StatsCard } from "@/components/StatsCard";
 import profileImage from "@/assets/profile.jpg";
@@ -99,25 +99,34 @@ const About = () => {
             Why Choose Me
           </motion.h2>
 
-          <div className="space-y-6">
-            <GlassProjectCard delay={0.1}>
-              <h3 className="text-2xl font-light mb-3">Cinematic Excellence</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                Every project is treated as a unique story. I combine technical expertise with creative vision to deliver content that not only looks stunning but resonates with your audience.
+          <div className="grid md:grid-cols-3 gap-6">
+            <GlassProjectCard delay={0.1} className="aspect-square flex flex-col justify-center">
+              <div className="flex justify-center mb-4">
+                <Sparkles className="text-primary" size={40} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-2xl font-light mb-3 text-center">Cinematic Excellence</h3>
+              <p className="text-muted-foreground font-light leading-relaxed text-center">
+                Every project is treated as a unique story. I combine technical expertise with creative vision to deliver content that resonates.
               </p>
             </GlassProjectCard>
 
-            <GlassProjectCard delay={0.2}>
-              <h3 className="text-2xl font-light mb-3">Fast Turnaround</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                Time is valuable. I deliver high-quality edits within agreed timelines without compromising on quality. Clear communication throughout ensures we stay on track.
+            <GlassProjectCard delay={0.2} className="aspect-square flex flex-col justify-center">
+              <div className="flex justify-center mb-4">
+                <Zap className="text-primary" size={40} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-2xl font-light mb-3 text-center">Fast Turnaround</h3>
+              <p className="text-muted-foreground font-light leading-relaxed text-center">
+                Time is valuable. I deliver high-quality edits within agreed timelines without compromising on quality.
               </p>
             </GlassProjectCard>
 
-            <GlassProjectCard delay={0.3}>
-              <h3 className="text-2xl font-light mb-3">Versatile Skillset</h3>
-              <p className="text-muted-foreground font-light leading-relaxed">
-                From long-form documentaries to viral social content, from motion graphics to VFX – I bring a comprehensive toolkit to every project.
+            <GlassProjectCard delay={0.3} className="aspect-square flex flex-col justify-center">
+              <div className="flex justify-center mb-4">
+                <Palette className="text-primary" size={40} strokeWidth={1.5} />
+              </div>
+              <h3 className="text-2xl font-light mb-3 text-center">Versatile Skillset</h3>
+              <p className="text-muted-foreground font-light leading-relaxed text-center">
+                From long-form documentaries to viral social content, from motion graphics to VFX – I bring a comprehensive toolkit.
               </p>
             </GlassProjectCard>
           </div>
@@ -136,6 +145,9 @@ const About = () => {
           </motion.h2>
 
           <GlassProjectCard delay={0.1}>
+            <div className="flex justify-center mb-6">
+              <Target className="text-primary" size={48} strokeWidth={1.5} />
+            </div>
             <p className="text-lg text-muted-foreground font-light leading-relaxed text-center">
               To transform raw footage into compelling visual narratives that captivate, inspire, and drive results. 
               I believe every frame matters, and every edit should serve the story. My goal is to help creators and 
@@ -164,46 +176,46 @@ const About = () => {
           >
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1" className="glass-card rounded-2xl px-6 border-none">
-                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                <AccordionTrigger className="text-xl font-light hover:no-underline transition-all duration-300">
                   What's your typical turnaround time?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed transition-all duration-300 ease-in-out">
                   For most projects, I deliver within 3-7 business days. Rush orders are available for urgent needs, and longer projects are scheduled based on complexity.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2" className="glass-card rounded-2xl px-6 border-none">
-                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                <AccordionTrigger className="text-xl font-light hover:no-underline transition-all duration-300">
                   What video formats do you work with?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed transition-all duration-300 ease-in-out">
                   I work with all major video formats including MP4, MOV, AVI, and professional codecs like ProRes. I can deliver in any format you need for your platform.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3" className="glass-card rounded-2xl px-6 border-none">
-                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                <AccordionTrigger className="text-xl font-light hover:no-underline transition-all duration-300">
                   Do you offer revisions?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed transition-all duration-300 ease-in-out">
                   Yes! I include up to 3 rounds of revisions with every project to ensure you're completely satisfied with the final result.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4" className="glass-card rounded-2xl px-6 border-none">
-                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                <AccordionTrigger className="text-xl font-light hover:no-underline transition-all duration-300">
                   What software do you use?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed transition-all duration-300 ease-in-out">
                   I primarily use Adobe Premiere Pro, After Effects, and DaVinci Resolve. I'm also experienced with Final Cut Pro and various motion graphics tools.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-5" className="glass-card rounded-2xl px-6 border-none">
-                <AccordionTrigger className="text-xl font-light hover:no-underline">
+                <AccordionTrigger className="text-xl font-light hover:no-underline transition-all duration-300">
                   How do we share files?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground font-light leading-relaxed">
+                <AccordionContent className="text-muted-foreground font-light leading-relaxed transition-all duration-300 ease-in-out">
                   I accept files via Google Drive, Dropbox, WeTransfer, or Frame.io. I can work with whatever platform is most convenient for you.
                 </AccordionContent>
               </AccordionItem>

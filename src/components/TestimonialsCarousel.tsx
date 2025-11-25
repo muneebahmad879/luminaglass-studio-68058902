@@ -42,13 +42,14 @@ const testimonials = [
 
 export const TestimonialsCarousel = () => {
   const [offset, setOffset] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setOffset((prev) => prev - 0.5);
+      setOffset((prev) => prev - (isHovered ? 0.2 : 0.8));
     }, 30);
     return () => clearInterval(interval);
-  }, []);
+  }, [isHovered]);
 
   // Duplicate testimonials for seamless loop
   const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
@@ -89,10 +90,14 @@ export const TestimonialsCarousel = () => {
           {duplicatedTestimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="glass-card rounded-3xl p-8 min-w-[350px] md:min-w-[400px] flex-shrink-0"
+              className="glass-card rounded-3xl p-8 w-[400px] h-[400px] flex-shrink-0 flex flex-col justify-between"
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
             >
-              <Quote className="text-primary mb-6" size={32} strokeWidth={1.5} />
-              <p className="text-lg font-light mb-6 leading-relaxed">"{testimonial.quote}"</p>
+              <div>
+                <Quote className="text-primary mb-6" size={32} strokeWidth={1.5} />
+                <p className="text-lg font-light mb-6 leading-relaxed">"{testimonial.quote}"</p>
+              </div>
               <div className="flex items-center gap-4">
                 <img
                   src={testimonial.image}
