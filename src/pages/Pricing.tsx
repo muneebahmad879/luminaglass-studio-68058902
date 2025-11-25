@@ -89,11 +89,20 @@ const Pricing = () => {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {pricingPlans.map((plan, index) => (
-            <GlassProjectCard
-              key={plan.name}
-              delay={index * 0.1}
-              className={plan.popular ? "ring-2 ring-primary" : ""}
-            >
+            <div key={plan.name} className={plan.popular ? "relative group" : ""}>
+              {plan.popular && (
+                <div 
+                  className="absolute -inset-4 rounded-3xl opacity-0 blur-3xl transition-all duration-700 group-hover:opacity-70 instagram-glow"
+                  style={{
+                    background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+                    backgroundSize: "200% 200%",
+                  }}
+                />
+              )}
+              <GlassProjectCard
+                delay={index * 0.1}
+                className={plan.popular ? "ring-2 ring-primary relative" : ""}
+              >
               {plan.popular && (
                 <div className="bg-primary text-primary-foreground text-sm font-light px-4 py-1 rounded-full inline-block mb-4">
                   Most Popular
@@ -135,6 +144,7 @@ const Pricing = () => {
                 Get Started
               </motion.button>
             </GlassProjectCard>
+            </div>
           ))}
         </div>
 

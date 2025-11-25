@@ -56,32 +56,54 @@ const Portfolio = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-4 mb-16"
+          className="flex justify-center mb-16"
         >
-          <button 
-            onClick={() => setActiveTab("longForm")}
-            className={`transition-all ${activeTab === "longForm" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]" : ""}`}
-          >
-            <CategoryBadge icon={Film} label="Long Form" color="blue" />
-          </button>
-          <button 
-            onClick={() => setActiveTab("shortForm")}
-            className={`transition-all ${activeTab === "shortForm" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]" : ""}`}
-          >
-            <CategoryBadge icon={Camera} label="Short Form" color="purple" />
-          </button>
-          <button 
-            onClick={() => setActiveTab("animations")}
-            className={`transition-all ${activeTab === "animations" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]" : ""}`}
-          >
-            <CategoryBadge icon={Sparkles} label="Animations" color="teal" />
-          </button>
-          <button 
-            onClick={() => setActiveTab("business")}
-            className={`transition-all ${activeTab === "business" ? "shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]" : ""}`}
-          >
-            <CategoryBadge icon={Briefcase} label="Business & Brand" color="orange" />
-          </button>
+          <div className="glass-card rounded-full p-2 inline-flex gap-2">
+            <button 
+              onClick={() => setActiveTab("longForm")}
+              className={`relative px-6 py-3 rounded-full transition-all duration-300 flex items-center gap-2 ${
+                activeTab === "longForm" 
+                  ? "bg-blue text-white shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(59,130,246,0.4)]" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Film size={18} strokeWidth={1.5} />
+              <span className="font-light">Long Form</span>
+            </button>
+            <button 
+              onClick={() => setActiveTab("shortForm")}
+              className={`relative px-6 py-3 rounded-full transition-all duration-300 flex items-center gap-2 ${
+                activeTab === "shortForm" 
+                  ? "bg-purple text-white shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(147,51,234,0.4)]" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Camera size={18} strokeWidth={1.5} />
+              <span className="font-light">Short Form</span>
+            </button>
+            <button 
+              onClick={() => setActiveTab("animations")}
+              className={`relative px-6 py-3 rounded-full transition-all duration-300 flex items-center gap-2 ${
+                activeTab === "animations" 
+                  ? "bg-teal text-white shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(20,184,166,0.4)]" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Sparkles size={18} strokeWidth={1.5} />
+              <span className="font-light">Animations</span>
+            </button>
+            <button 
+              onClick={() => setActiveTab("business")}
+              className={`relative px-6 py-3 rounded-full transition-all duration-300 flex items-center gap-2 ${
+                activeTab === "business" 
+                  ? "bg-orange text-white shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(251,146,60,0.4)]" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              <Briefcase size={18} strokeWidth={1.5} />
+              <span className="font-light">Business & Brand</span>
+            </button>
+          </div>
         </motion.div>
 
         {/* Projects Grid */}
