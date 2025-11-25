@@ -1,14 +1,7 @@
 import { motion } from "framer-motion";
-import { Film, Sparkles, Video } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { GlowIcon } from "@/components/GlowIcon";
-import { GlassProjectCard } from "@/components/GlassProjectCard";
 import { TestimonialsCarousel } from "@/components/TestimonialsCarousel";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const navigate = useNavigate();
-
   return (
     <div className="min-h-screen pt-24">
       {/* Hero Section */}
@@ -52,49 +45,40 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Services Preview */}
+      {/* Showreel Section */}
       <section className="container mx-auto px-6 py-20">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="text-4xl md:text-5xl font-light text-center mb-16"
+          transition={{ type: "spring", stiffness: 150, damping: 20 }}
+          className="max-w-5xl mx-auto"
         >
-          What I Bring to Your Vision
-        </motion.h2>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          <GlassProjectCard delay={0}>
-            <div className="flex justify-center mb-6">
-              <GlowIcon icon={Video} color="blue" size={40} />
+          <div className="relative group">
+            {/* Animated liquid glass glow */}
+            <div 
+              className="absolute -inset-4 rounded-3xl opacity-70 blur-2xl transition-all duration-700 group-hover:opacity-90 group-hover:blur-3xl"
+              style={{
+                background: "linear-gradient(135deg, rgba(59, 130, 246, 0.3), rgba(147, 51, 234, 0.3), rgba(20, 184, 166, 0.3))",
+                backgroundSize: "200% 200%",
+                animation: "gradient 8s ease infinite",
+              }}
+            />
+            
+            {/* Glass frame */}
+            <div className="relative glass-card rounded-3xl p-4 shadow-[inset_0_2px_20px_rgba(255,255,255,0.2),0_0_40px_rgba(255,255,255,0.1)] backdrop-blur-xl">
+              <div className="relative overflow-hidden rounded-2xl aspect-video">
+                <iframe
+                  className="w-full h-full"
+                  src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                  title="Showreel"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
             </div>
-            <h3 className="text-2xl font-light mb-4 text-center">Long Form Editing</h3>
-            <p className="text-muted-foreground font-light text-center">
-              Documentaries, interviews, and narrative content
-            </p>
-          </GlassProjectCard>
-
-          <GlassProjectCard delay={0.1}>
-            <div className="flex justify-center mb-6">
-              <GlowIcon icon={Sparkles} color="purple" size={40} />
-            </div>
-            <h3 className="text-2xl font-light mb-4 text-center">Short Form Content</h3>
-            <p className="text-muted-foreground font-light text-center">
-              Social media reels, ads, and viral content
-            </p>
-          </GlassProjectCard>
-
-          <GlassProjectCard delay={0.2}>
-            <div className="flex justify-center mb-6">
-              <GlowIcon icon={Film} color="teal" size={40} />
-            </div>
-            <h3 className="text-2xl font-light mb-4 text-center">Motion Graphics</h3>
-            <p className="text-muted-foreground font-light text-center">
-              Dynamic animations and visual effects
-            </p>
-          </GlassProjectCard>
-        </div>
+          </div>
+        </motion.div>
       </section>
 
       {/* Testimonials */}
