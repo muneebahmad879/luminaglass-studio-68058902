@@ -88,7 +88,7 @@ const Portfolio = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
           {projects[activeTab].map((project, index) => (
             <GlassProjectCard key={project.title} delay={index * 0.1}>
-              <div className="relative overflow-hidden rounded-2xl mb-4 aspect-video">
+              <div className="relative overflow-hidden rounded-2xl aspect-video">
                 <iframe
                   className="w-full h-full"
                   src={`https://www.youtube.com/embed/${project.videoId}`}
@@ -97,8 +97,6 @@ const Portfolio = () => {
                   allowFullScreen
                 />
               </div>
-              <h3 className="text-xl font-light mb-2">{project.title}</h3>
-              <p className="text-sm text-muted-foreground font-light">{project.category}</p>
             </GlassProjectCard>
           ))}
         </div>
