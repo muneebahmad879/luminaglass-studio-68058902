@@ -91,13 +91,10 @@ const Pricing = () => {
           {pricingPlans.map((plan, index) => (
             <div key={plan.name} className={plan.popular ? "relative group" : ""}>
               {plan.popular && (
-                <div 
-                  className="absolute -inset-4 rounded-3xl opacity-0 blur-3xl transition-all duration-700 group-hover:opacity-70 instagram-glow"
-                  style={{
-                    background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
-                    backgroundSize: "200% 200%",
-                  }}
-                />
+                <>
+                  <div className="absolute -inset-1 rounded-3xl instagram-border-animated opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                  <div className="absolute -inset-4 rounded-3xl instagram-glow-animated opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                </>
               )}
               <GlassProjectCard
                 delay={index * 0.1}

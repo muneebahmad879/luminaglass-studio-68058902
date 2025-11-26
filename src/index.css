@@ -125,6 +125,12 @@ All colors MUST be HSL.
   }
 }
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 @layer utilities {
   .glass-card {
     @apply bg-white/40 dark:bg-white/5 backdrop-blur-xl border border-white/20;
@@ -176,5 +182,45 @@ All colors MUST be HSL.
     100% {
       background-position: 0% 50%;
     }
+  }
+  
+  @keyframes smoothRotate {
+    0% {
+      --angle: 0deg;
+    }
+    100% {
+      --angle: 360deg;
+    }
+  }
+  
+  .instagram-border-animated {
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 0%,
+      transparent 5%,
+      rgba(249, 206, 52, 0.4) 15%,
+      rgba(238, 42, 123, 0.8) 30%,
+      rgba(98, 40, 215, 0.8) 45%,
+      rgba(238, 42, 123, 0.4) 55%,
+      transparent 65%,
+      transparent 100%
+    );
+    animation: smoothRotate 6s linear infinite;
+  }
+  
+  .instagram-glow-animated {
+    background: conic-gradient(
+      from var(--angle, 0deg),
+      transparent 0%,
+      transparent 10%,
+      rgba(249, 206, 52, 0.3) 20%,
+      rgba(238, 42, 123, 0.5) 35%,
+      rgba(98, 40, 215, 0.5) 50%,
+      rgba(238, 42, 123, 0.3) 60%,
+      transparent 70%,
+      transparent 100%
+    );
+    animation: smoothRotate 6s linear infinite;
+    filter: blur(20px);
   }
 }
