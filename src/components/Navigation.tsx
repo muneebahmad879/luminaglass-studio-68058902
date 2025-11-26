@@ -23,13 +23,23 @@ export const Navigation = () => {
       <div className="container mx-auto px-6 py-3">
         <div className="flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full overflow-hidden">
-              <img
-                src={profileImage}
-                alt="Muneeb"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            <motion.div 
+              className="relative"
+              initial={{ scale: 0, rotate: -180 }}
+              animate={{ scale: 1, rotate: 0 }}
+              transition={{ type: "spring", stiffness: 250, damping: 12, duration: 0.3 }}
+              whileHover={{ scale: 1.1, rotate: 5 }}
+            >
+              <div className="absolute -inset-1 rounded-full instagram-border-animated" style={{ zIndex: -1 }} />
+              <div className="absolute -inset-2 rounded-full instagram-glow-animated" style={{ zIndex: -2 }} />
+              <div className="w-10 h-10 rounded-full overflow-hidden relative z-10">
+                <img
+                  src={profileImage}
+                  alt="Muneeb"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </motion.div>
             <span className="text-xl font-light">Muneeb</span>
           </Link>
           
