@@ -38,17 +38,21 @@ export const Navigation = () => {
               <NavLink
                 key={item.name}
                 to={item.path}
-                className="relative text-sm font-light text-muted-foreground hover:text-foreground transition-all px-4 py-2 rounded-full"
+                className="relative text-sm font-light text-muted-foreground hover:text-foreground transition-all px-4 py-2 rounded-full group"
               >
                 {({ isActive }) => (
                   <>
                     <span className={isActive ? "text-foreground" : ""}>{item.name}</span>
                     {isActive && (
-                      <motion.div
-                        layoutId="activeLink"
-                        className="absolute inset-0 glass-card rounded-full -z-10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]"
-                        transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                      />
+                      <>
+                        <motion.div
+                          layoutId="activeLink"
+                          className="absolute inset-0 glass-card rounded-full -z-10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]"
+                          transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                        />
+                        <div className="absolute -inset-0.5 rounded-full instagram-border-animated opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
+                        <div className="absolute -inset-2 rounded-full instagram-glow-animated opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-20" />
+                      </>
                     )}
                   </>
                 )}
