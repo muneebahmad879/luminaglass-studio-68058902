@@ -91,10 +91,7 @@ const Pricing = () => {
           {pricingPlans.map((plan, index) => (
             <div key={plan.name} className={plan.popular ? "relative group" : ""}>
               {plan.popular && (
-                <>
-                  <div className="absolute -inset-1 rounded-3xl instagram-border-animated opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                  <div className="absolute -inset-4 rounded-3xl instagram-glow-animated opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </>
+                <div className="absolute -inset-[2px] rounded-3xl instagram-border-animated -z-10" />
               )}
               <GlassProjectCard
                 delay={index * 0.1}
@@ -132,10 +129,10 @@ const Pricing = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => navigate("/contact")}
-                className={`w-full rounded-full font-light transition-all px-5 py-2 text-sm shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)] ${
+                className={`w-full rounded-full font-light transition-all px-5 py-2 text-sm ${
                   plan.popular
-                    ? "glass-card hover:glass-hover border-2 border-primary/50"
-                    : "glass-card hover:glass-hover"
+                    ? "bg-primary text-primary-foreground shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(59,130,246,0.3)] hover:shadow-[inset_0_2px_10px_rgba(255,255,255,0.4),0_0_25px_rgba(59,130,246,0.4)]"
+                    : "glass-card hover:glass-hover shadow-[inset_0_2px_10px_rgba(255,255,255,0.3),0_0_20px_rgba(255,255,255,0.1)]"
                 }`}
               >
                 Get Started
