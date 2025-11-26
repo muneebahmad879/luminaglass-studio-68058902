@@ -27,11 +27,18 @@ export const Navigation = () => {
               className="relative"
               initial={{ scale: 0, rotate: -180 }}
               animate={{ scale: 1, rotate: 0 }}
-              transition={{ type: "spring", stiffness: 250, damping: 12, duration: 0.3 }}
-              whileHover={{ scale: 1.1, rotate: 5 }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.34, 1.56, 0.64, 1]
+              }}
+              whileHover={{ 
+                scale: 1.1, 
+                rotate: 5,
+                transition: { duration: 0.3, ease: "easeOut" }
+              }}
             >
-              <div className="absolute -inset-1 rounded-full instagram-border-animated" style={{ zIndex: -1 }} />
-              <div className="absolute -inset-2 rounded-full instagram-glow-animated" style={{ zIndex: -2 }} />
+              <div className="absolute -inset-[3px] rounded-full instagram-border-animated" style={{ zIndex: -1 }} />
+              <div className="absolute -inset-[5px] rounded-full instagram-glow-animated" style={{ zIndex: -2 }} />
               <div className="w-10 h-10 rounded-full overflow-hidden relative z-10">
                 <img
                   src={profileImage}
