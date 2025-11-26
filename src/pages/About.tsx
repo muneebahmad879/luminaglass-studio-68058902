@@ -3,77 +3,72 @@ import { Award, Users, Clock, Sparkles, Zap, Target, Palette } from "lucide-reac
 import { GlassProjectCard } from "@/components/GlassProjectCard";
 import { StatsCard } from "@/components/StatsCard";
 import profileImage from "@/assets/profile.jpg";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 const About = () => {
-  return (
-    <div className="min-h-screen pt-24">
+  return <div className="min-h-screen pt-24">
       <section className="container mx-auto px-6 py-20">
-        <motion.h1
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ type: "spring", stiffness: 200, damping: 15 }}
-          className="text-5xl md:text-7xl font-light text-center mb-20"
-        >
+        <motion.h1 initial={{
+        opacity: 0,
+        y: -20
+      }} animate={{
+        opacity: 1,
+        y: 0
+      }} transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 15
+      }} className="text-5xl md:text-7xl font-light text-center mb-20">
           About Me
         </motion.h1>
 
         {/* Profile Section */}
         <div className="max-w-4xl mx-auto mb-20">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-            animate={{ 
-              opacity: 1, 
-              scale: 1, 
-              rotate: 0,
-            }}
-            transition={{ 
-              type: "spring", 
-              stiffness: 150, 
-              damping: 10,
-              duration: 0.5
-            }}
-            whileHover={{ 
-              scale: 1.05,
-              rotate: 5,
-              transition: { 
-                type: "spring", 
-                stiffness: 300, 
-                damping: 15 
-              }
-            }}
-            className="relative w-64 h-64 mx-auto mb-12 cursor-pointer"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          scale: 0.8,
+          rotate: -10
+        }} animate={{
+          opacity: 1,
+          scale: 1,
+          rotate: 0
+        }} transition={{
+          type: "spring",
+          stiffness: 150,
+          damping: 10,
+          duration: 0.5
+        }} whileHover={{
+          scale: 1.05,
+          rotate: 5,
+          transition: {
+            type: "spring",
+            stiffness: 300,
+            damping: 15
+          }
+        }} className="relative w-64 h-64 mx-auto mb-12 cursor-pointer">
             {/* Instagram-colored animated glow */}
-            <div 
-              className="absolute inset-0 rounded-full blur-3xl opacity-70 instagram-glow"
-              style={{
-                background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
-                backgroundSize: "200% 200%",
-              }}
-            />
+            <div className="absolute inset-0 rounded-full blur-3xl opacity-70 instagram-glow" style={{
+            background: "linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%)",
+            backgroundSize: "200% 200%"
+          }} />
             
             {/* Glass frame */}
             <div className="relative glass-card rounded-full p-2 h-full w-full">
-              <img
-                src={profileImage}
-                alt="Muneeb - Video Editor"
-                className="w-full h-full object-cover rounded-full"
-              />
+              <img src={profileImage} alt="Muneeb - Video Editor" className="w-full h-full object-cover rounded-full" />
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.2 }}
-            className="text-center mb-16"
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} animate={{
+          opacity: 1,
+          y: 0
+        }} transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+          delay: 0.2
+        }} className="text-center mb-16">
             <h2 className="text-3xl font-light mb-4">Muhammad Muneeb</h2>
             <p className="text-xl text-muted-foreground font-light">Cinematic Video Editor & Motion Designer</p>
           </motion.div>
@@ -89,15 +84,7 @@ const About = () => {
 
         {/* Why Choose Me */}
         <div className="max-w-4xl mx-auto mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="text-4xl font-light text-center mb-12"
-          >
-            Why Choose Me
-          </motion.h2>
+          
 
           <div className="grid md:grid-cols-3 gap-6">
             <GlassProjectCard delay={0.1} className="aspect-square flex flex-col justify-center">
@@ -134,15 +121,7 @@ const About = () => {
 
         {/* My Mission */}
         <div className="max-w-4xl mx-auto mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="text-4xl font-light text-center mb-12"
-          >
-            My Mission
-          </motion.h2>
+          
 
           <GlassProjectCard delay={0.1}>
             <div className="flex justify-center mb-6">
@@ -158,22 +137,36 @@ const About = () => {
 
         {/* FAQ Section */}
         <div className="max-w-4xl mx-auto">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="text-4xl font-light text-center mb-12"
-          >
+          <motion.h2 initial={{
+          opacity: 0,
+          y: -20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 15
+        }} className="text-4xl font-light text-center mb-12">
             Frequently Asked Questions
           </motion.h2>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 15, delay: 0.1 }}
-          >
+          <motion.div initial={{
+          opacity: 0,
+          y: 20
+        }} whileInView={{
+          opacity: 1,
+          y: 0
+        }} viewport={{
+          once: true
+        }} transition={{
+          type: "spring",
+          stiffness: 200,
+          damping: 15,
+          delay: 0.1
+        }}>
             <Accordion type="single" collapsible className="space-y-4">
               <AccordionItem value="item-1" className="glass-card rounded-2xl px-6 border-none">
                 <AccordionTrigger className="text-xl font-light hover:no-underline transition-all duration-300">
@@ -223,8 +216,6 @@ const About = () => {
           </motion.div>
         </div>
       </section>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
