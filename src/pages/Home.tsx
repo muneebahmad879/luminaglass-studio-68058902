@@ -37,7 +37,7 @@ const Home = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => window.open('https://www.youtube.com/@muneebgondal', '_blank')}
-              className="bg-blue text-white px-8 py-4 rounded-full text-lg font-light transition-all shadow-[inset_0_2px_15px_rgba(255,255,255,0.4),0_0_40px_rgba(59,130,246,0.5)]"
+              className="bg-primary text-primary-foreground px-8 py-4 rounded-full text-lg font-light transition-all shadow-[inset_0_2px_15px_rgba(255,255,255,0.4),0_0_40px_rgba(59,130,246,0.5)]"
             >
               Watch My Work
             </motion.button>
