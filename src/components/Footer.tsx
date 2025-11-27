@@ -1,4 +1,5 @@
 import { Instagram, Linkedin, Twitter, Youtube } from "lucide-react";
+import profileImage from "@/assets/profile.jpg";
 
 export const Footer = () => {
   const socialLinks = [
@@ -12,10 +13,17 @@ export const Footer = () => {
     <footer className="border-t border-white/20 mt-20">
       <div className="container mx-auto px-6 py-12">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          {/* Brand */}
-          <div className="text-center md:text-left">
-            <h3 className="text-2xl font-light mb-2">Muneeb Gondal</h3>
-            <p className="text-muted-foreground font-light">Professional Video Editor</p>
+          {/* Brand with Profile Picture */}
+          <div className="flex items-center gap-4">
+            <img 
+              src={profileImage} 
+              alt="Muneeb Gondal" 
+              className="w-16 h-16 rounded-full object-cover"
+            />
+            <div className="text-center md:text-left">
+              <h3 className="text-2xl font-light mb-1">Muneeb Gondal</h3>
+              <p className="text-muted-foreground font-light">Professional Video Editor</p>
+            </div>
           </div>
 
           {/* Social Links */}
@@ -26,10 +34,11 @@ export const Footer = () => {
                 href={social.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card p-3 rounded-full hover:scale-110 transition-transform duration-300 shadow-[inset_0_2px_10px_rgba(255,255,255,0.2)]"
+                className="relative glass-card p-3 rounded-full transition-transform duration-300 shadow-[inset_0_2px_10px_rgba(255,255,255,0.2)] hover:scale-110 group"
                 aria-label={social.name}
               >
-                <social.icon className="w-5 h-5" />
+                <div className="absolute inset-0 rounded-full instagram-border-animated opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <social.icon className="w-5 h-5 relative z-10" />
               </a>
             ))}
           </div>
