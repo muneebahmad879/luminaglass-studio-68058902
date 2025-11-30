@@ -46,8 +46,17 @@ export const TestimonialsCarousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setOffset((prev) => prev - (isHovered ? 0.2 : 0.8));
-    }, 30);
+      if (!isHovered) {
+        setOffset((prev) => {
+          const newOffset = prev - 2;
+          // Reset to create seamless loop
+          if (newOffset <= -(400 * testimonials.length + 24 * testimonials.length)) {
+            return 0;
+          }
+          return newOffset;
+        });
+      }
+    }, 20);
     return () => clearInterval(interval);
   }, [isHovered]);
 
@@ -78,13 +87,8 @@ export const TestimonialsCarousel = () => {
             x: offset
           }}
           transition={{
-            duration: 0,
-            ease: "linear"
-          }}
-          onAnimationComplete={() => {
-            if (offset <= -(400 * testimonials.length)) {
-              setOffset(0);
-            }
+            duration: isHovered ? 0.8 : 0,
+            ease: isHovered ? "easeOut" : "linear"
           }}
         >
           {duplicatedTestimonials.map((testimonial, index) => (
