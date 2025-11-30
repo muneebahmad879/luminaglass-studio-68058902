@@ -132,29 +132,6 @@ const About = () => {
           </div>
         </div>
 
-        {/* My Mission */}
-        <div className="max-w-4xl mx-auto mb-20">
-          <motion.h2
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="text-4xl font-light text-center mb-12"
-          >
-            My Mission
-          </motion.h2>
-
-          <GlassProjectCard delay={0.1}>
-            <div className="flex justify-center mb-6">
-              <Target className="text-primary" size={48} strokeWidth={1.5} />
-            </div>
-            <p className="text-lg text-muted-foreground font-light leading-relaxed text-center">
-              To transform raw footage into compelling visual narratives that captivate, inspire, and drive results. 
-              I believe every frame matters, and every edit should serve the story. My goal is to help creators and 
-              brands amplify their message through the power of expertly crafted video content.
-            </p>
-          </GlassProjectCard>
-        </div>
 
         {/* FAQ Section */}
         <div className="max-w-4xl mx-auto">

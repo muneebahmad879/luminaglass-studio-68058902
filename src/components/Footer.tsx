@@ -71,7 +71,7 @@ export const Footer = () => {
                     className="relative glass-card p-4 rounded-2xl transition-all duration-300 shadow-[inset_0_2px_10px_rgba(255,255,255,0.2)] group"
                     aria-label={social.name}
                   >
-                    <div className="absolute inset-0 rounded-2xl instagram-border-animated opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute -inset-[6px] rounded-2xl instagram-border-animated opacity-0 group-hover:opacity-100 transition-all duration-700 blur-xl" />
                     <social.icon className="w-5 h-5 relative z-10" />
                   </motion.a>
                 ))}
