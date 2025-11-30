@@ -43,22 +43,34 @@ const testimonials = [
 export const TestimonialsCarousel = () => {
   const [offset, setOffset] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const [speed, setSpeed] = useState(1.5);
+
+  useEffect(() => {
+    // Smoothly transition speed when hover state changes
+    const targetSpeed = isHovered ? 0.15 : 1.5;
+    const speedInterval = setInterval(() => {
+      setSpeed((prev) => {
+        const diff = targetSpeed - prev;
+        if (Math.abs(diff) < 0.01) return targetSpeed;
+        return prev + diff * 0.1;
+      });
+    }, 16);
+    return () => clearInterval(speedInterval);
+  }, [isHovered]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      if (!isHovered) {
-        setOffset((prev) => {
-          const newOffset = prev - 2;
-          // Reset to create seamless loop
-          if (newOffset <= -(400 * testimonials.length + 24 * testimonials.length)) {
-            return 0;
-          }
-          return newOffset;
-        });
-      }
-    }, 20);
+      setOffset((prev) => {
+        const newOffset = prev - speed;
+        // Reset to create seamless loop
+        if (newOffset <= -(400 * testimonials.length + 24 * testimonials.length)) {
+          return 0;
+        }
+        return newOffset;
+      });
+    }, 16);
     return () => clearInterval(interval);
-  }, [isHovered]);
+  }, [speed]);
 
   // Duplicate testimonials for seamless loop
   const duplicatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
@@ -83,12 +95,8 @@ export const TestimonialsCarousel = () => {
       <div className="relative">
         <motion.div
           className="flex gap-6"
-          animate={{
+          style={{
             x: offset
-          }}
-          transition={{
-            duration: isHovered ? 0.8 : 0,
-            ease: isHovered ? "easeOut" : "linear"
           }}
         >
           {duplicatedTestimonials.map((testimonial, index) => (
