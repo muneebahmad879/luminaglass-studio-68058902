@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { Award, Users, Clock, Sparkles, Zap, Target, Palette } from "lucide-react";
+import { Award, Users, Clock, Sparkles, Zap, Palette, MessageSquare, Clapperboard, Sparkle, Rocket } from "lucide-react";
 import { GlassProjectCard } from "@/components/GlassProjectCard";
 import { StatsCard } from "@/components/StatsCard";
+import { ProcessStep } from "@/components/ProcessStep";
 import profileImage from "@/assets/profile.jpg";
 import {
   Accordion,
@@ -132,6 +133,62 @@ const About = () => {
           </div>
         </div>
 
+        {/* My Process */}
+        <div className="max-w-7xl mx-auto mb-20">
+          <motion.h2
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ type: "spring", stiffness: 200, damping: 15 }}
+            className="text-4xl font-light text-center mb-6"
+          >
+            My Process
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-center text-muted-foreground font-light mb-16 max-w-2xl mx-auto"
+          >
+            From concept to final delivery, here's how I bring your vision to life through a proven workflow
+          </motion.p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 relative">
+            <ProcessStep
+              number="01"
+              title="Discovery"
+              description="We discuss your vision, goals, and requirements. I learn about your brand, audience, and what success looks like."
+              icon={MessageSquare}
+              color="blue"
+              delay={0.1}
+            />
+            <ProcessStep
+              number="02"
+              title="Planning"
+              description="I create a detailed plan with timelines, milestones, and creative direction to ensure we're aligned before editing begins."
+              icon={Clapperboard}
+              color="purple"
+              delay={0.2}
+            />
+            <ProcessStep
+              number="03"
+              title="Creation"
+              description="The magic happens here. I meticulously edit, color grade, add effects, and polish every frame to perfection."
+              icon={Sparkle}
+              color="teal"
+              delay={0.3}
+            />
+            <ProcessStep
+              number="04"
+              title="Delivery"
+              description="After your feedback and revisions, I deliver the final product in your preferred format, ready to captivate your audience."
+              icon={Rocket}
+              color="orange"
+              delay={0.4}
+            />
+          </div>
+        </div>
 
         {/* FAQ Section */}
         <div className="max-w-4xl mx-auto">
