@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { NavLink } from "@/components/NavLink";
+import { Menu, X } from "lucide-react";
+import { useState } from "react";
 import profileImage from "@/assets/profile.jpg";
 
 const navItems = [
@@ -13,6 +15,8 @@ const navItems = [
 ];
 
 export const Navigation = () => {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
   return (
     <motion.nav
       initial={{ y: -20, opacity: 0 }}
@@ -77,10 +81,55 @@ export const Navigation = () => {
             ))}
           </div>
 
-          <div className="md:hidden">
-            {/* Mobile menu would go here */}
-          </div>
+          <button
+            className="md:hidden glass-card p-2 rounded-full"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
         </div>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ duration: 0.3 }}
+              className="md:hidden overflow-hidden"
+            >
+              <div className="flex flex-col gap-2 pt-4 pb-2">
+                {navItems.map((item, index) => (
+                  <NavLink
+                    key={item.name}
+                    to={item.path}
+                    className="relative text-sm font-light text-muted-foreground hover:text-foreground transition-all px-4 py-3 rounded-2xl group"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    {({ isActive }) => (
+                      <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                      >
+                        <span className={isActive ? "text-foreground" : ""}>{item.name}</span>
+                        {isActive && (
+                          <motion.div
+                            layoutId="activeLinkMobile"
+                            className="absolute inset-0 glass-card rounded-2xl -z-10 shadow-[inset_0_2px_10px_rgba(255,255,255,0.3)]"
+                            transition={{ type: "spring", stiffness: 380, damping: 30 }}
+                          />
+                        )}
+                      </motion.div>
+                    )}
+                  </NavLink>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </motion.nav>
   );
